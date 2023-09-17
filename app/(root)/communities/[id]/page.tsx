@@ -1,4 +1,4 @@
-// import TalksTab from "@/components/shared/TalksTab";
+import ThreadsTab from "@/components/shared/ThreadsTab";
 import { communityTabs } from "@/constants";
 import Image from "next/image";
 import { currentUser } from "@clerk/nextjs";
@@ -54,7 +54,7 @@ export default async function page({ params }: { params: { id: string } }) {
                     </TabsList>
 
                     <TabsContent  value='Talks' className="w-full text-light-1">
-                        <TalksTab
+                        <ThreadsTab
                             currentUserId={user.id}
                             accountId={communityDetails.id}
                             accountType='Community'
@@ -77,7 +77,7 @@ export default async function page({ params }: { params: { id: string } }) {
                         </section>
                     </TabsContent>
                     <TabsContent  value='requests' className="w-full text-light-1">
-                        <TalksTab
+                        <ThreadsTab
                             currentUserId={user.id}
                             accountId={communityDetails.id}
                             accountType='Community'

@@ -6,7 +6,7 @@ import { redirect } from "next/navigation";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { profileTabs } from "@/constants";
 import Image from "next/image";
-import TalksTab from "@/components/shared/TalksTab";
+import ThreadsTab from "@/components/shared/ThreadsTab";
 
 
 export default async function page({ params }: { params: { id: string } }) {
@@ -55,7 +55,7 @@ export default async function page({ params }: { params: { id: string } }) {
                     {
                         profileTabs.map(tab => (
                             <TabsContent key={`content-${tab.label}`} value={tab.value} className="w-full text-light-1">
-                                <TalksTab
+                                <ThreadsTab
                                     currentUserId={user.id}
                                     accountId={userInfo.id}
                                     accountType='User'
