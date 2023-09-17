@@ -9,7 +9,7 @@ interface Props {
     accountType: 'User' | 'Community',
 }
 
-export default async function ThreadsTab({ currentUserId,
+export default async function TalksTab({ currentUserId,
     accountId,
     accountType,
 }: Props) {
@@ -28,7 +28,7 @@ export default async function ThreadsTab({ currentUserId,
     return (
         <section className='mt-9 flex flex-col gap-10'>
             {
-                result.threads.map((thread: any) => (
+                result.Talks.map((thread: any) => (
                     <ThreadCard
                         key={thread._id}
                         id={thread._id}

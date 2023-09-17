@@ -4,8 +4,8 @@ import type { Metadata } from 'next'
 import '../globals.css'
 
 export const metadata: Metadata = {
-    title: 'Threads',
-    description: 'A Next.js 13 Meta Threads Application'
+    title: 'Talks',
+    description: 'A Next.js 13 Meta Talks Application'
 }
 
 const inter = Inter({ subsets: ['latin'] })
