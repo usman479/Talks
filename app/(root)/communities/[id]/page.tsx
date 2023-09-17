@@ -1,4 +1,4 @@
-import ThreadsTab from "@/components/shared/ThreadsTab";
+import TalksTab from "@/components/shared/TalksTab";
 import { communityTabs } from "@/constants";
 import Image from "next/image";
 import { currentUser } from "@clerk/nextjs";
@@ -28,7 +28,7 @@ export default async function page({ params }: { params: { id: string } }) {
                 type='Community'
             />
             <div className="mt-9">
-                <Tabs defaultValue="threads" className="w-full">
+                <Tabs defaultValue="Talks" className="w-full">
                     <TabsList className="tab">
                         {
                             communityTabs.map(tab => (
@@ -42,9 +42,9 @@ export default async function page({ params }: { params: { id: string } }) {
                                     />
                                     <p className="max-sm:hidden">{tab.label}</p>
                                     {
-                                        tab.label === 'Threads' && (
+                                        tab.label === 'Talks' && (
                                             <p className="ml-1 rounded-sm bg-light-4 px-2 py-1 !text-tiny-medium text-light-2">
-                                                {communityDetails?.threads?.length}
+                                                {communityDetails?.Talks?.length}
                                             </p>
                                         )
                                     }
@@ -53,8 +53,8 @@ export default async function page({ params }: { params: { id: string } }) {
                         }
                     </TabsList>
 
-                    <TabsContent  value='threads' className="w-full text-light-1">
-                        <ThreadsTab
+                    <TabsContent  value='Talks' className="w-full text-light-1">
+                        <TalksTab
                             currentUserId={user.id}
                             accountId={communityDetails.id}
                             accountType='Community'
@@ -77,7 +77,7 @@ export default async function page({ params }: { params: { id: string } }) {
                         </section>
                     </TabsContent>
                     <TabsContent  value='requests' className="w-full text-light-1">
-                        <ThreadsTab
+                        <TalksTab
                             currentUserId={user.id}
                             accountId={communityDetails.id}
                             accountType='Community'

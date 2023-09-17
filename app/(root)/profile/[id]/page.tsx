@@ -6,7 +6,7 @@ import { redirect } from "next/navigation";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { profileTabs } from "@/constants";
 import Image from "next/image";
-import ThreadsTab from "@/components/shared/ThreadsTab";
+import TalksTab from "@/components/shared/TalksTab";
 
 
 export default async function page({ params }: { params: { id: string } }) {
@@ -28,7 +28,7 @@ export default async function page({ params }: { params: { id: string } }) {
                 bio={userInfo.bio}
             />
             <div className="mt-9">
-                <Tabs defaultValue="threads" className="w-full">
+                <Tabs defaultValue="Talks" className="w-full">
                     <TabsList className="tab">
                         {
                             profileTabs.map(tab => (
@@ -42,9 +42,9 @@ export default async function page({ params }: { params: { id: string } }) {
                                     />
                                     <p className="max-sm:hidden">{tab.label}</p>
                                     {
-                                        tab.label === 'Threads' && (
+                                        tab.label === 'Talks' && (
                                             <p className="ml-1 rounded-sm bg-light-4 px-2 py-1 !text-tiny-medium text-light-2">
-                                                {userInfo?.threads?.length}
+                                                {userInfo?.Talks?.length}
                                             </p>
                                         )
                                     }
@@ -55,7 +55,7 @@ export default async function page({ params }: { params: { id: string } }) {
                     {
                         profileTabs.map(tab => (
                             <TabsContent key={`content-${tab.label}`} value={tab.value} className="w-full text-light-1">
-                                <ThreadsTab
+                                <TalksTab
                                     currentUserId={user.id}
                                     accountId={userInfo.id}
                                     accountType='User'

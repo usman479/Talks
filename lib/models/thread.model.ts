@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const threadSchema = new mongoose.Schema({
+const Talkschema = new mongoose.Schema({
     text: { type: String, required: true },
     author: {
         type: mongoose.Schema.Types.ObjectId,
@@ -27,6 +27,6 @@ const threadSchema = new mongoose.Schema({
 })
 
 
-const Thread = mongoose.models.Thread || mongoose.model("Thread", threadSchema);
+const Thread = mongoose.models.Thread || mongoose.model("Thread", Talkschema);
 
 export default Thread;

@@ -6,7 +6,7 @@ const userSchema = new mongoose.Schema({
     name: { type: String, required: true },
     image: String,
     bio: String,
-    threads: [
+    Talks: [
         {
             type: mongoose.Schema.Types.ObjectId,
             ref: 'Thread'

@@ -66,9 +66,9 @@ export async function fetchUserPosts(userId: string) {
   try {
     connectedToDB();
 
-    // Find all threads authored by the user with the given userId
-    const threads = await User.findOne({ id: userId }).populate({
-      path: "threads",
+    // Find all Talks authored by the user with the given userId
+    const Talks = await User.findOne({ id: userId }).populate({
+      path: "Talks",
       model: Thread,
       populate: [
         {
@@ -87,9 +87,9 @@ export async function fetchUserPosts(userId: string) {
         },
       ],
     });
-    return threads;
+    return Talks;
   } catch (error) {
-    console.error("Error fetching user threads:", error);
+    console.error("Error fetching user Talks:", error);
     throw error;
   }
 }
@@ -157,18 +157,18 @@ export async function getActivity(userId: string) {
   try {
     connectedToDB();
 
-    // Find all threads created by the user
-    const userThreads = await Thread.find({ author: userId });
+    // Find all Talks created by the user
+    const userTalks = await Thread.find({ author: userId });
 
     // Collect all the child thread ids (replies) from the 'children' field of each user thread
-    const childThreadIds = userThreads.reduce((acc, userThread) => {
+    const childThreadIds = userTalks.reduce((acc, userThread) => {
       return acc.concat(userThread.children);
     }, []);
 
-    // Find and return the child threads (replies) excluding the ones created by the same user
+    // Find and return the child Talks (replies) excluding the ones created by the same user
     const replies = await Thread.find({
       _id: { $in: childThreadIds },
-      author: { $ne: userId }, // Exclude threads authored by the same user
+      author: { $ne: userId }, // Exclude Talks authored by the same user
     }).populate({
       path: "author",
       model: User,

@@ -5,7 +5,7 @@ import { currentUser } from "@clerk/nextjs";
 import { redirect } from "next/navigation";
 import { profileTabs } from "@/constants";
 import Image from "next/image";
-import ThreadsTab from "@/components/shared/ThreadsTab";
+import TalksTab from "@/components/shared/TalksTab";
 import UserCard from "@/components/cards/UserCard";
 
 
