@@ -1,4 +1,4 @@
-import TalksTab from "@/components/shared/TalksTab";
+// import TalksTab from "@/components/shared/TalksTab";
 import { communityTabs } from "@/constants";
 import Image from "next/image";
 import { currentUser } from "@clerk/nextjs";
